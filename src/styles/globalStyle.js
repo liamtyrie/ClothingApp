@@ -4,17 +4,17 @@ const GlobalStyle = createGlobalStyle`
 
 
 :root {
-    --darkest-bg: ;
-    --dark-bg: ;
-    --medium-bg: ;
-    --light-bg: ;
-    --lightest-bg: ;
+    --darkest-bg: #ffd8be;
+    --dark-bg: #ffeedd;
+    --li-purple-bg: #b8b8ff;
+    --da-purple-bg: #9381ff;
+    --lightest-bg: #f8f7ff;
 
-    --darkest-tx: ;
-    --dark-tx: ;
-    --medium-tx: ;
-    --light-tx: ;
-    --lightest-tx: ;
+    --darkest-tx: #001233;
+    --dark-tx: #001845;
+    --medium-tx: #002855;
+    --light-tx: #023e7d;
+    --lightest-tx: #0466c8;
 
     --font-sans: ;
     --font-mono: ;
