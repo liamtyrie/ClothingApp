@@ -16,6 +16,13 @@ const reviewSchema = mongoose.Schema(
     }
 )
 
+const sizeSchema = mongoose.Schema(
+    {
+        size: { type: Number, required: true},
+        countInStock: { type: Number, required: true},
+    },
+)
+
 const productSchema = mongoose.Schema(
     {
         user: {
@@ -63,11 +70,7 @@ const productSchema = mongoose.Schema(
             required: true,
             default: 0,
         },
-        countInStock: {
-            type: Number,
-            required: true,
-            default: 0,
-        },
+        size: [sizeSchema],
     },
     {
         timestamps: true,
