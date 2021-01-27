@@ -1,3 +1,9 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.trailingComma": "none",
+    "prettier.useEditorConfig": false,
+    "prettier.singleQuote": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
 }
