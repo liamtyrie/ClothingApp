@@ -1,13 +1,18 @@
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import GlobalStyle from './styles/globalStyle';
+import Nav from './components/Nav';
+
+import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
       <GlobalStyle />
-      <header className="App-header"></header>
-    </div>
+      <Router>
+        <Nav />
+      </Router>
+    </React.Fragment>
   );
 }
 
