@@ -238,7 +238,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--pri-back);
+    background-color: #e5383b;
     color: var(--text);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
@@ -298,8 +298,8 @@ const GlobalStyle = createGlobalStyle`
   }
   section {
     margin: 0 auto;
-    padding: 100px 0;
-    max-width: 1000px;
+    padding: 0px 0;
+    max-width: 95vw;
     @media (max-width: 768px) {
       padding: 80px 0;
     }
@@ -375,6 +375,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 100%;
     vertical-align: middle;
+
   }
   img[alt=""],
   img:not([alt]) {
