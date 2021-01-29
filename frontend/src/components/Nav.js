@@ -10,7 +10,7 @@ import { navLinks } from '../config.js';
 
 import Menu from '../components/Menu';
 
-import IconLogo from '../images/logo1.png';
+import IconLogo from '../images/logo6.png';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -35,8 +35,8 @@ const StyledHeader = styled.header`
     css`
       height: var(--nav-scroll-height);
       transform: translateY(0px);
-      background-color: rgba(10, 25, 47, 0.85);
-      box-shadow: 0 10px 30px -10px var(--pri-back);
+      background-color: var(--tri-back);
+      box-shadow: 0 10px 30px -10px var(--text);
     `}
 
   ${(props) =>
@@ -45,7 +45,7 @@ const StyledHeader = styled.header`
     css`
       height: var(--nav-scroll-height);
       transform: translateY(calc(var(--nav-scroll-height) * -1));
-      box-shadow: 0 10px 30px -10px var(--pri-back);
+      box-shadow: 0 10px 30px -10px var(--text);
     `};
 
   @media (max-width: 1080px) {
@@ -62,7 +62,7 @@ const StyledNav = styled.nav`
   align-items: center;
   position: relative;
   width: 100vw;
-  color: var(--orange);
+  color: var(--text);
   font-family: var(--font-sans);
   z-index: 12;
   .logo {
@@ -70,16 +70,16 @@ const StyledNav = styled.nav`
     justify-content: center;
     align-items: center;
     a {
-      color: var(--tri-orange);
+      color: var(--text);
       &:hover {
-        color: var(--tri-orange);
+        color: var(--text2);
       }
       width: 42px;
       height: 42px;
       &:hover,
       &:focus {
         svg {
-          fill: var(--tri-orange);
+          fill: var(--text2);
         }
       }
       svg {
@@ -113,7 +113,7 @@ const StyledLinks = styled.div`
         padding: 10px;
         &:before {
           margin-right: 5px;
-          color: var(--white);
+          color: var(--text);
           font-size: var(--fz-xxs);
           text-align: right;
         }
@@ -121,13 +121,13 @@ const StyledLinks = styled.div`
     }
   }
   .resume-button {
-    color: var(--orange);
+    color: var(--text);
     background-color: transparent;
-    border: 1px solid var(--orange);
+    border: 0.2px solid var(--text);
     border-radius: var(--border-radius);
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.5rem;
     font-size: var(--fz-md);
-    font-family: var(--font-ropa);
+    font-family: var(--font-sans);
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -135,7 +135,7 @@ const StyledLinks = styled.div`
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--tri-orange);
+      background-color: var(--sec-back);
     }
     &:after {
       display: none !important;
@@ -180,21 +180,16 @@ const Nav = ({ isHome }) => {
         <TransitionGroup component={null}>
           {isMounted && (
             <CSSTransition classNames={fadeClass} timeout={timeout}>
-              <div
-                className={IconLogo}
-                tabIndex="-1"
-                style={{ width: '200px' }}
-              >
+              <div className={IconLogo} tabIndex="-1">
                 {isHome ? (
                   <a href="/" aria-label="home">
-                    <img src={IconLogo} alt="logo" style={{ width: '10px' }} />
+                    <img src={IconLogo} alt="logo" style={{ width: '120px' }} />
                   </a>
                 ) : (
                   <Link to="/" aria-label="home">
-                    <img src={IconLogo} alt="logo" style={{ width: '100px' }} />
+                    <img src={IconLogo} alt="logo" style={{ width: '260px' }} />
                   </Link>
                 )}
-                <p>SHU-72</p>
               </div>
             </CSSTransition>
           )}

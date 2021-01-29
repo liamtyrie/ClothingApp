@@ -4,11 +4,11 @@ import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
 
 const button = css`
-  color: var(--green);
+  color: black;
   background-color: transparent;
-  border: 1px solid var(--green);
+  border: 1px solid black;
   border-radius: var(--border-radius);
-  font-size: var(--fz-xs);
+  font-size: var(--fz-sm);
   font-family: var(--font-mono);
   line-height: 1;
   text-decoration: none;
@@ -19,7 +19,7 @@ const button = css`
   &:hover,
   &:focus,
   &:active {
-    background-color: var(--green-tint);
+    background-color: var(--tri-back);
     outline: none;
   }
   &:after {
@@ -51,7 +51,7 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: var(--tri-orange);
+      color: black;
       outline: 0;
     }
   `,
@@ -63,17 +63,17 @@ const mixins = {
     position: relative;
     transition: var(--transition);
     cursor: pointer;
-    color: var(--orange);
+    color: var(--text);
     &:hover,
     &:focus,
     &:active {
-      color: var(--tri-orange);
+      color: var(--text2);
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--tri-orange) !important;
+        color: var(--text2) !important;
         transition: var(--transition);
       }
     }
@@ -84,7 +84,7 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 0.37em;
-      background-color: var(--sec-orange);
+      background-color: var(--sec-back);
       transition: var(--transition);
       opacity: 0.5;
     }
@@ -93,13 +93,13 @@ const mixins = {
   button,
 
   smallButton: css`
-    color: var(--orange);
+    color: black;
     background-color: transparent;
-    border: 1px solid var(--orange);
+    border: 1px solid var(--text);
     border-radius: var(--border-radius);
     padding: 0.75rem 1rem;
     font-size: var(--fz-xs);
-    font-family: var(--font-ropa);
+    font-family: var(--font-sans);
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -107,7 +107,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--tri-orange);
+      background-color: var(--sec-back);
     }
     &:after {
       display: none !important;
@@ -115,13 +115,13 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: var(--orange);
+    color: var(--text);
     background-color: transparent;
-    border: 1px solid var(--orange);
+    border: 1px solid var(--text);
     border-radius: var(--border-radius);
     padding: 1.25rem 1.75rem;
     font-size: var(--fz-sm);
-    font-family: var(--font-ropa);
+    font-family: var(--font-sans);
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -129,7 +129,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--tri-orange);
+      background-color: var(--pri-back);
     }
     &:after {
       display: none !important;
@@ -137,12 +137,12 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--sec-orange);
+    box-shadow: 0 10px 30px -15px var(--sec-back);
     transition: var(--transition);
 
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px var(--tri-orange);
+      box-shadow: 0 20px 30px -15px var(--tri-back);
     }
   `,
 
@@ -159,7 +159,7 @@ const mixins = {
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--tri-orange);
+        color: var(--tri-back);
       }
     }
   `
@@ -185,14 +185,11 @@ const GlobalStyle = createGlobalStyle`
     ${Fonts};
 
     :root {
-        --pri-back: white;
-        --sec-back: white;
-        --tri-back: white;
-        --white: #FAFDF2;
-        --turq: #2a9d8f;
-        --orange: #e76f51;
-        --sec-orange: #f4a261;
-        --tri-orange: #e9c46a;
+        --pri-back: #FFFFFF;
+        --sec-back: #F5F3F4;
+        --tri-back: #D3D3D3;
+        --text: #161A1D;
+        --text2: #0B090A;
 
 
  --font-sans: 'Calibre', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
@@ -200,7 +197,6 @@ const GlobalStyle = createGlobalStyle`
     --font-nanum: 'Nanum Gothic';
     --font-roboto: 'Roboto Mono';
     --font-bebas: 'Bebas Neue';
-    --font-ropa: 'Ropa Sans';
     --fz-xxs: 12px;
     --fz-xs: 13px;
     --fz-sm: 14px;
@@ -232,8 +228,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   ::selection {
-    background-color: var(--orange);
-    color: var(--tri-orange);
+    background-color: var(--sec-back);
+    color: var(--text2);
   }
   body {
     margin: 0;
@@ -243,8 +239,8 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background-color: var(--pri-back);
-    color: var(--orange);
-    font-family: var(--font-ropa);
+    color: var(--text);
+    font-family: var(--font-sans);
     font-size: var(--fz-xl);
     line-height: 1.3;
     @media (max-width: 480px) {
@@ -319,7 +315,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--turq);
+    color: var(--text);
     line-height: 1.1;
   }
   .big-heading {
@@ -344,8 +340,8 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--orange);
-      font-family: var(--font-ropa);
+      color: var(--text);
+      font-family: var(--font-sans);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
       @media (max-width: 480px) {
@@ -361,7 +357,7 @@ const GlobalStyle = createGlobalStyle`
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--tri-orange);
+      background-color: var(--sec-back);
       @media (max-width: 1080px) {
         width: 200px;
       }
@@ -403,7 +399,7 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     &:hover,
     &:focus {
-      color: var(--tri-orange);
+      color: var(--text2);
     }
     &.inline-link {
       		display: inline-block;
@@ -412,17 +408,17 @@ const GlobalStyle = createGlobalStyle`
 		position: relative;
 		transition: var(--transition);
 		cursor: pointer;
-		color: var(--orange);
+		color: var(--text);
 		&:hover,
 		&:focus,
 		&:active {
-			color: var(--tri-orange);
+			color: var(--text2);
 			outline: 0;
 			&:after {
 				width: 100%;
 			}
 			& > * {
-				color: var(--orange) !important;
+				color: var(--text2) !important;
 				transition: var(--transition);
 			}
 		}
@@ -468,7 +464,7 @@ const GlobalStyle = createGlobalStyle`
     }
     & > code {
       background-color: var(--sec-back);
-      color: var(--turq);
+      color: var(--text2);
       font-size: var(--fz-sm);
       border-radius: var(--border-radius);
       padding: 0.3em 0.5em;
@@ -488,13 +484,13 @@ const GlobalStyle = createGlobalStyle`
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--tri-orange);
+          color: var(--text2);
         }
       }
     }
   }
   blockquote {
-    border-left-color: var(--orange);
+    border-left-color: var(--text);
     border-left-style: solid;
     border-left-width: 1px;
     margin-left: 0px;
@@ -506,7 +502,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   hr {
-    background-color: var(--tri-orange);
+    background-color: var(--sec-back);
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -515,23 +511,23 @@ const GlobalStyle = createGlobalStyle`
     margin: 1rem;
   }
   code {
-    font-family: var(--font-ropa);
+    font-family: var(--font-mono);
     font-size: var(--fz-md);
   }
   #logo {
-    color: var(--orange);
+    color: var(--text2);
   }
   .overline {
-    color: var(--turq);
-    font-family: var(--font-ropa);
+    color: var(--text);
+    font-family: var(--font-sans);
     font-size: var(--fz-md);
     font-weight: 400;
   }
   .subtitle {
-    color: var(--turq);
+    color: var(--text);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
-    font-family: var(--font-ropa);
+    font-family: var(--font-sans);
     font-weight: 400;
     line-height: 1.5;
     @media (max-width: 1080px) {
@@ -547,62 +543,17 @@ const GlobalStyle = createGlobalStyle`
 		position: relative;
 		transition: var(--transition);
 		cursor: pointer;
-		color: var(--orange);
+		color: var(--text);
 		&:hover,
 		&:focus,
 		&:active {
-			color: var(--tri-orange);
+			color: var(--text2);
 			outline: 0;
 			&:after {
 				width: 100%;
 			}
 			& > * {
-				color: var(--tri-orange) !important;
-				transition: var(--transition);
-			}
-		}
-		&:after {
-			content: '';
-			display: block;
-			width: 0;
-			height: 1px;
-			position: relative;
-			bottom: 0.37em;
-			background-color: var(--pri-back);
-			transition: var(--transition);
-			opacity: 0.5;
-		}
-      line-height: 1.5;
-    }
-  }
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
-    color: var(--green);
-    .arrow {
-      display: block;
-      margin-right: 10px;
-      padding-top: 4px;
-    }
-    a {
-      		display: inline-block;
-		text-decoration: none;
-		text-decoration-skip-ink: auto;
-		position: relative;
-		transition: var(--transition);
-		cursor: pointer;
-		color: var(--orange);
-		&:hover,
-		&:focus,
-		&:active {
-			color: var(--tri-orange);
-			outline: 0;
-			&:after {
-				width: 100%;
-			}
-			& > * {
-				color: var(--orange) !important;
+				color: var(--text2) !important;
 				transition: var(--transition);
 			}
 		}
@@ -617,7 +568,52 @@ const GlobalStyle = createGlobalStyle`
 			transition: var(--transition);
 			opacity: 0.5;
 		}
-      font-family: var(--font-ropa);
+      line-height: 1.5;
+    }
+  }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    color: var(--text);
+    .arrow {
+      display: block;
+      margin-right: 10px;
+      padding-top: 4px;
+    }
+    a {
+      		display: inline-block;
+		text-decoration: none;
+		text-decoration-skip-ink: auto;
+		position: relative;
+		transition: var(--transition);
+		cursor: pointer;
+		color: var(--text);
+		&:hover,
+		&:focus,
+		&:active {
+			color: var(--text2);
+			outline: 0;
+			&:after {
+				width: 100%;
+			}
+			& > * {
+				color: var(--text) !important;
+				transition: var(--transition);
+			}
+		}
+		&:after {
+			content: '';
+			display: block;
+			width: 0;
+			height: 1px;
+			position: relative;
+			bottom: 0.37em;
+			background-color: var(--sec-back);
+			transition: var(--transition);
+			opacity: 0.5;
+		}
+      font-family: var(--font-sans);
       font-size: var(--fz-sm);
       font-weight: 600;
       line-height: 1.5;
