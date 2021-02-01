@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -7,8 +6,8 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-  PRODUCT_DELETE_REQUEST,
   PRODUCT_DELETE_SUCCESS,
+  PRODUCT_DELETE_REQUEST,
   PRODUCT_DELETE_FAIL,
   PRODUCT_CREATE_REQUEST,
   PRODUCT_CREATE_SUCCESS,
@@ -22,7 +21,7 @@ import {
   PRODUCT_TOP_REQUEST,
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL
-} from '../constants/productContants';
+} from '../constants/productConstants';
 import { logout } from './userActions';
 
 export const listProducts = (keyword = '', pageNumber = '') => async (
@@ -32,7 +31,7 @@ export const listProducts = (keyword = '', pageNumber = '') => async (
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
     const { data } = await axios.get(
-      `/api/products?keyword=${keyword}&pageNumber=${pageNumber}}`
+      `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
     );
 
     dispatch({
@@ -97,7 +96,6 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-
     if (message === 'Not authorized, token failed') {
       dispatch(logout());
     }
@@ -178,8 +176,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-
-    if (message === ' Not Authorized, token failed') {
+    if (message === 'Not authorized, token failed') {
       dispatch(logout());
     }
     dispatch({
@@ -217,7 +214,7 @@ export const createProductReview = (productId, review) => async (
   } catch (error) {
     const message =
       error.response && error.response.data.message
-        ? error.response.data.messagecd
+        ? error.response.data.message
         : error.message;
     if (message === 'Not authorized, token failed') {
       dispatch(logout());

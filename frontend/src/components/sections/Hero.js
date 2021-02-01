@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -21,8 +21,6 @@ const StyledHeroSection = styled.section`
 
 ${{ theme }} => theme.mixins.flexCenter};
 
-justify-content: center;
-align-items: center;
 margin-top: 80px;
 height: 200vh;
 
@@ -57,91 +55,73 @@ height: 200vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-.containerleft {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
   background-image: linear-gradient(#ff0a54, #f77f00);
+  border-radius: 40px 40px 40px 40px;
   height: 80vh;
-  width: 40vw;
-  border-radius: 40px 0px 0px 40px;
-}
-
-.containerright {
-  grid-column: 2/3;
-  grid-row: 1/3;
-  background-color: white;
-  height: 80vh;
-  width: 40vw;
-  border-radius: 0px 40px 40px 0px;
+  width: 80vw;
+  
 }
 
 .nikelogo {
   grid-row: 1/2;
-  grid-column: 1/2;
-  width: 200px;
+  grid-column: 1/3;
+  justify-self: left;
+  width: 3em;
   margin: 50px 80px;
+
+    @media (max-width: 930px) {
+    justify-self: center;
+  }
+}
+}
+
+.nikeairmax {
+  grid-row: 3/4;
+  grid-column: 1 / 3;
 }
 
 .shoe1 {
-  align-items: center;
   grid-row: 3/4;
-  grid-column: 1 / 2;
-  margin-left: -3em;
-  margin-top: -2em;
+  grid-column: 1/3;
+  max-width: 12em;
+  justify-self: right;
 }
 
 .title {
-  grid-row: 2/3;
-  grid-column: 1/2;
+  grid-row: 1/2;
+  grid-column: 1/3;
+  justify-self: right;
+  padding-top: 30px;
+  padding-right: 80px;
   font-size: var(--fz-xl);
   letter-spacing: -0.07em;
-  text-align: left;
+  text-align: center;
   margin-left: 80px;
+
+  @media (max-width: 930px) {
+    padding-top: 150px;
+  }
 }
 
 
 
 `;
 
-const HeroScreen = ({ match }) => {
-  const keyword = match.params.keyword;
-
-  const pageNumber = match.params.pageNumber || 1;
-
-  const dispatch = useDispatch();
-
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
-
-  useEffect(() => {
-    dispatch(listProducts(keyword, pageNumber));
-  }, [dispatch, keyword, pageNumber]);
-};
-
-function Hero({ product }) {
+const Hero = () => {
   return (
     <>
       <Meta />
       <StyledHeroSection>
         <div className="container">
-          <div className="containerleft">
-            <img src={Nike} alt="nike air max" className="nikelogo" />
-            <h1 className="title">
-              AIR FORCE <b>1</b>
-            </h1>
-            <img src={Shoe} alt="nikeair" className="shoe1" />
-          </div>
-          <div className="containerright"></div>
+          <img src={Nike} alt="nike air max" className="nikelogo" />
+          <h1 className="title">
+            AIR FORCE <b>1</b>
+          </h1>
+          <img src={Shoe} alt="nikeair" className="shoe1" />
         </div>
       </StyledHeroSection>
     </>
   );
-}
+};
 
 export default Hero;

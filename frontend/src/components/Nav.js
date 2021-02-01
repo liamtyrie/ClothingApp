@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import useScrollDirection from '../components/utils/scrollDirection';
 import styled, { css } from 'styled-components';

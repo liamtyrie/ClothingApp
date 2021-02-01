@@ -203,7 +203,7 @@ const GlobalStyle = createGlobalStyle`
     --fz-xxl: 5em;
     --fz-heading: 32px;
     --border-radius: 4px;
-    --nav-height: 80px;
+    --nav-height: 100px;
     --nav-scroll-height: 70px;
     --tab-height: 42px;
     --tab-width: 120px;
@@ -235,7 +235,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-image: linear-gradient(#adb5bd, #dee2e6);
+    background-image: linear-gradient(#adb5be, #dee2e6);
     color: var(--text);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
