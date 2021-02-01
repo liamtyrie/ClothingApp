@@ -185,24 +185,21 @@ const GlobalStyle = createGlobalStyle`
     ${Fonts};
 
     :root {
-        --pri-back: #FFFFFF;
-        --sec-back: #F5F3F4;
+        --pri-back: #d9d9d9;
+        --sec-back: #adb5bd;
         --tri-back: #D3D3D3;
         --text: #161A1D;
         --text2: #0B090A;
 
 
  --font-sans: 'Calibre', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
-    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-    --font-nanum: 'Nanum Gothic';
-    --font-roboto: 'Roboto Mono';
-    --font-bebas: 'Bebas Neue';
+    --font-sans: 'Montserrat';
     --fz-xxs: 12px;
     --fz-xs: 13px;
     --fz-sm: 14px;
     --fz-md: 17px;
     --fz-lg: 18px;
-    --fz-xl: 2em;
+    --fz-xl: 4rem;
     --fz-xxl: 5em;
     --fz-heading: 32px;
     --border-radius: 4px;
@@ -228,7 +225,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   ::selection {
-    background-color: var(--sec-back);
+    background-color: var(--pri-back);
     color: var(--text2);
   }
   body {
@@ -238,7 +235,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: #e5383b;
+    background-image: linear-gradient(#adb5bd, #dee2e6);
     color: var(--text);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);

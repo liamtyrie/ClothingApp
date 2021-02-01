@@ -10,7 +10,7 @@ import { navLinks } from '../config.js';
 
 import Menu from '../components/Menu';
 
-import IconLogo from '../images/logo6.png';
+import IconLogo from '../images/shu72.png';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -22,11 +22,11 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100vw;
   height: var(--nav-height);
-  background-color: #ba181b;
+  background-color: transparent;
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(2px);
   transition: var(--transition);
 
   ${(props) =>
@@ -120,29 +120,6 @@ const StyledLinks = styled.div`
       }
     }
   }
-  .resume-button {
-    color: var(--text);
-    background-color: transparent;
-    border: 0.2px solid var(--text);
-    border-radius: var(--border-radius);
-    padding: 0.5rem 0.5rem;
-    font-size: var(--fz-md);
-    font-family: var(--font-sans);
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition);
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: var(--sec-back);
-    }
-    &:after {
-      display: none !important;
-    }
-    margin-left: 15px;
-    font-size: var(--fz-md);
-  }
 `;
 
 const Nav = ({ isHome }) => {
@@ -183,11 +160,11 @@ const Nav = ({ isHome }) => {
               <div className={IconLogo} tabIndex="-1">
                 {isHome ? (
                   <a href="/" aria-label="home">
-                    <img src={IconLogo} alt="logo" style={{ width: '120px' }} />
+                    <img src={IconLogo} alt="logo" style={{ width: '100px' }} />
                   </a>
                 ) : (
                   <Link to="/" aria-label="home">
-                    <img src={IconLogo} alt="logo" style={{ width: '260px' }} />
+                    <img src={IconLogo} alt="logo" style={{ width: '210px' }} />
                   </Link>
                 )}
               </div>
@@ -208,9 +185,7 @@ const Nav = ({ isHome }) => {
                   >
                     <li
                       key={i}
-                      style={{
-                        transitionDelay: `${isHome ? i * 100 : 0}ms`
-                      }}
+                      style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}
                     >
                       <Link to={url}>{name}</Link>
                     </li>
@@ -225,16 +200,7 @@ const Nav = ({ isHome }) => {
                   style={{
                     transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms`
                   }}
-                >
-                  <a
-                    className="resume-button"
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Resume
-                  </a>
-                </div>
+                ></div>
               </CSSTransition>
             )}
           </TransitionGroup>
